@@ -1,35 +1,70 @@
-# Takanome
+<div align="center">
 
-Security scanner for AI agents. Scans your agent installation, checks it against the official security documentation, and gives you a score out of 100.
+```
+╔════════════════════════════════════════════╗
+║  ████████╗ █████╗ ██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗███████╗  ║
+║     ██╔══╝██╔══██╗██║ ██╔╝██╔══██╗████╗  ██║██╔═══██╗████╗ ████║██╔════╝  ║
+║     ██║   ███████║█████╔╝ ███████║██╔██╗ ██║██║   ██║██╔████╔██║█████╗    ║
+║     ██║   ██╔══██║██╔═██╗ ██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══╝    ║
+║     ██║   ██║  ██║██║  ██╗██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║███████╗  ║
+║     ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝  ║
+╚════════════════════════════════════════════╝
+```
 
-Now with **AI-powered analysis and smart fixes** via the [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/overview/).
+**Security scanner for AI agents.**
 
-Currently supports **OpenClaw**. Pluggable architecture makes it easy to add more agent types.
+Scans your agent installation, checks it against official security documentation,
+and gives you a **score out of 100**.
 
-Built in Rust — ships as a single self-contained binary. No runtime required.
+[![Crates.io](https://img.shields.io/crates/v/takanome?style=flat-square&color=fc8d62&labelColor=1a1a2e)](https://crates.io/crates/takanome)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square&labelColor=1a1a2e)](LICENSE)
+[![Built with Rust](https://img.shields.io/badge/Built%20with-Rust-orange?style=flat-square&labelColor=1a1a2e&logo=rust)](https://www.rust-lang.org/)
+[![Follow on X](https://img.shields.io/badge/Follow-%40TakanomeApp-black?style=flat-square&logo=x&labelColor=000000)](https://x.com/TakanomeApp)
 
-## Installation
+</div>
 
-**From source:**
+---
+
+## ✨ What is Takanome?
+
+Takanome is a **single self-contained binary** built in Rust that audits your AI agent installation against official security documentation — no runtime required. It runs 30+ security checks across 14 categories and delivers a clear, actionable score.
+
+Now supercharged with **AI-powered analysis and smart fixes** via the [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/overview/).
+
+> Currently supports **OpenClaw**. The pluggable architecture makes it easy to add more agent types.
+
+---
+
+## 🚀 Installation
+
+<details>
+<summary><strong>From source</strong></summary>
 
 ```bash
 cargo build --release
 cp target/release/takanome /usr/local/bin/
 ```
+</details>
 
-**Via cargo:**
+<details>
+<summary><strong>Via Cargo</strong></summary>
 
 ```bash
 cargo install takanome
 ```
+</details>
 
-**Homebrew** (coming soon):
+<details>
+<summary><strong>Homebrew</strong> (coming soon)</summary>
 
 ```bash
 brew install takanome
 ```
+</details>
 
-## Usage
+---
+
+## ⚡ Usage
 
 ```bash
 # Auto-detect installed agent and scan
@@ -38,16 +73,16 @@ takanome scan
 # Specify agent type
 takanome scan --agent openclaw
 
-# Show all checks (including passing)
+# Show all checks (including passing ones)
 takanome scan --verbose
 
 # Machine-readable JSON output
 takanome scan --json
 ```
 
-### AI Features (Bankr LLM Gateway)
+### 🤖 AI Features — Bankr LLM Gateway
 
-All AI commands require a Bankr API key. Get one at [bankr.bot/api](https://bankr.bot/api).
+All AI commands require a Bankr API key. Get yours at [bankr.bot/api](https://bankr.bot/api).
 
 ```bash
 # Set your API key (recommended)
@@ -61,67 +96,75 @@ takanome analyze --model claude-sonnet-4.6
 takanome analyze --model gemini-3-flash
 takanome analyze --model gpt-5-nano
 
-# Pass API key inline instead of env var
+# Pass API key inline
 takanome analyze --api-key bk_YOUR_KEY
 
-# Get JSON output (scan report + AI analysis combined)
+# Get combined JSON output (scan report + AI analysis)
 takanome analyze --json
 
-# AI-generated smart fixes (preview only)
+# AI-generated smart fixes — preview only
 takanome ai-fix --dry-run
 
-# AI-generated smart fixes with confirmation prompt per fix
+# AI-generated smart fixes with confirmation per fix
 takanome ai-fix --interactive
 
 # Apply all AI-generated fixes automatically
 takanome ai-fix
 
-# AI fix with a stronger model for complex configs
+# Use a stronger model for complex configs
 takanome ai-fix --model claude-sonnet-4.6
 ```
 
-### Supported Models
+### 🧠 Supported Models
 
-Any model available on the [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/models) can be used with `--model`:
+Any model available on the [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/models) works with `--model`:
 
-| Model | Speed | Best for |
+| Model | Speed | Best For |
 |---|---|---|
-| `claude-haiku-4.5` | Fast | Default — good for most scans |
-| `claude-sonnet-4.6` | Medium | Complex configs, detailed analysis |
-| `gemini-3-flash` | Fast | Cost-efficient alternative |
-| `gpt-5-nano` | Fast | OpenAI alternative |
+| `claude-haiku-4.5` | ⚡ Fast | Default — great for most scans |
+| `claude-sonnet-4.6` | 🧠 Medium | Complex configs, detailed analysis |
+| `gemini-3-flash` | ⚡ Fast | Cost-efficient alternative |
+| `gpt-5-nano` | ⚡ Fast | OpenAI alternative |
 
-## What It Checks
+---
 
-Takanome runs 30+ security checks across 14 categories, all derived from the [OpenClaw Security Documentation](https://docs.openclaw.ai/gateway/security):
+## 🔍 What It Checks
 
-| Category | Points | Checks |
-| --- | --- | --- |
-| Authentication | 12 | Auth mode, token vs password, token strength (>= 32 chars) |
-| File Permissions | 10 | `~/.openclaw` dir is 700, config is 600, credential files protected |
-| Network Exposure | 12 | Loopback binding, port not publicly exposed, Tailscale preferred |
-| DM Security | 8 | DM policy is pairing/allowlist, per-channel-peer session isolation |
-| Group Security | 6 | Groups require @mention, no open group policies |
-| Tool Authorization | 10 | Dangerous tools denied, elevated tools disabled, restrictive profile |
-| Exec Security | 10 | Shell exec denied, approval required, strict inline eval |
-| Sandboxing | 10 | Sandbox mode enabled, per-agent/session scope, no dangerous Docker flags |
-| Browser Security | 6 | SSRF private network blocked, dedicated browser profile |
-| Dangerous Flags | 6 | No insecure config flags enabled |
-| Logging & Privacy | 4 | Sensitive data redaction, transcript permissions |
-| mDNS/Discovery | 2 | mDNS set to minimal or off |
-| Control UI | 2 | Origin allowlist configured, device auth enabled |
-| Plugins | 2 | Explicit plugin allowlist configured |
-| Secrets Management | 12 | secrets.json permissions, auth profile permissions, no hardcoded passwords, no plaintext API keys, secrets not in agent workspace |
+Takanome runs **30+ security checks across 14 categories**, all derived from the [OpenClaw Security Documentation](https://docs.openclaw.ai/gateway/security):
 
-## Scoring
+| Category | Points | What's Checked |
+|---|---|---|
+| 🔐 Authentication | 12 | Auth mode, token vs password, token strength (≥ 32 chars) |
+| 📁 File Permissions | 10 | `~/.openclaw` dir is 700, config is 600, credentials protected |
+| 🌐 Network Exposure | 12 | Loopback binding, port exposure, Tailscale preferred |
+| 💬 DM Security | 8 | DM policy pairing/allowlist, per-channel-peer session isolation |
+| 👥 Group Security | 6 | Groups require @mention, no open group policies |
+| 🛠️ Tool Authorization | 10 | Dangerous tools denied, elevated tools disabled, restrictive profile |
+| ⚙️ Exec Security | 10 | Shell exec denied, approval required, strict inline eval |
+| 📦 Sandboxing | 10 | Sandbox mode enabled, per-agent/session scope, no dangerous Docker flags |
+| 🌍 Browser Security | 6 | SSRF private network blocked, dedicated browser profile |
+| 🚩 Dangerous Flags | 6 | No insecure config flags enabled |
+| 📋 Logging & Privacy | 4 | Sensitive data redaction, transcript permissions |
+| 📡 mDNS/Discovery | 2 | mDNS set to minimal or off |
+| 🖥️ Control UI | 2 | Origin allowlist configured, device auth enabled |
+| 🧩 Plugins | 2 | Explicit plugin allowlist configured |
+| 🔑 Secrets Management | 12 | `secrets.json` permissions, no hardcoded passwords, no plaintext API keys |
 
-Each check has a severity level (critical, high, medium, low) and a point value. Your score is normalized to 100 regardless of how many checks are active.
+---
 
-* **80–100**: Well hardened
-* **60–79**: Needs attention
-* **Below 60**: Significant risks
+## 📊 Scoring
 
-## Example Output
+Each check carries a severity level (`critical`, `high`, `medium`, `low`) and a point value. Your score is **normalized to 100** regardless of how many checks are active.
+
+```
+ 80 – 100  ████████████████  ✅ Well hardened
+ 60 –  79  ████████████░░░░  ⚠️  Needs attention
+  0 –  59  ████████░░░░░░░░  🚨 Significant risks
+```
+
+---
+
+## 🖥️ Example Output
 
 ### `takanome scan`
 
@@ -186,26 +229,32 @@ Each check has a severity level (critical, high, medium, low) and a point value.
      openclaw config set exec.shell_exec deny
 ```
 
-## Exit Codes
+---
+
+## 🏗️ Architecture
+
+```
+takanome scan      ──▶  Rule-based only (offline, no API key needed)
+takanome fix       ──▶  Rule-based auto-fix (offline)
+takanome analyze   ──▶  Scan + Bankr LLM Gateway AI narrative
+takanome ai-fix    ──▶  Scan + Bankr LLM Gateway AI-generated patches
+```
+
+> The AI layer is **purely additive** — all existing commands work without any API key.
+
+---
+
+## 📤 Exit Codes
 
 | Code | Meaning |
-| --- | --- |
-| 0 | Scan passed (no critical failures) |
-| 1 | Critical security issues found |
-| 2 | Scanner error (agent not found, config parse failure, etc.) |
+|---|---|
+| `0` | Scan passed — no critical failures |
+| `1` | Critical security issues found |
+| `2` | Scanner error (agent not found, config parse failure, etc.) |
 
-## Architecture
+---
 
-```
-takanome scan      → rule-based only (offline, no API key needed)
-takanome fix       → rule-based auto-fix (offline)
-takanome analyze   → scan + Bankr LLM Gateway AI narrative
-takanome ai-fix    → scan + Bankr LLM Gateway AI-generated patches
-```
-
-The AI layer is purely additive — all existing commands work without any API key.
-
-## Adding a New Agent
+## 🔌 Adding a New Agent
 
 Create a new module under `src/agents/<name>/` and implement the `AgentPlugin` trait:
 
@@ -218,17 +267,38 @@ pub trait AgentPlugin {
 }
 ```
 
-Then register it in `src/agents/mod.rs`. See `src/agents/openclaw/` for a complete example.
+Then register it in `src/agents/mod.rs`. See `src/agents/openclaw/` for a complete reference implementation.
 
-## Building
+---
 
-Requires Rust 1.75+.
+## 🔨 Building
+
+Requires **Rust 1.75+**.
 
 ```bash
 cargo build            # Debug build
 cargo build --release  # Optimized release build (stripped, LTO enabled)
 ```
 
-## License
+---
 
-MIT
+## 🤝 Stay Connected
+
+- Follow updates on X: [@TakanomeApp](https://x.com/TakanomeApp)
+- Get an API key: [bankr.bot/api](https://bankr.bot/api)
+- Gateway models: [docs.bankr.bot/llm-gateway/models](https://docs.bankr.bot/llm-gateway/models)
+- OpenClaw security docs: [docs.openclaw.ai/gateway/security](https://docs.openclaw.ai/gateway/security)
+
+---
+
+## 📄 License
+
+MIT — see [LICENSE](LICENSE) for details.
+
+---
+
+<div align="center">
+
+Made with 🦀 Rust · Powered by [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/overview/) · Follow [@TakanomeApp](https://x.com/TakanomeApp)
+
+</div>
