@@ -7,7 +7,6 @@
 Scans your agent installation, checks it against official security documentation,
 and gives you a **score out of 100**.
 
-[![Crates.io](https://img.shields.io/crates/v/takanome?style=flat-square&color=fc8d62&labelColor=1a1a2e)](https://crates.io/crates/takanome)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square&labelColor=1a1a2e)](LICENSE)
 [![Built with Rust](https://img.shields.io/badge/Built%20with-Rust-orange?style=flat-square&labelColor=1a1a2e&logo=rust)](https://www.rust-lang.org/)
 [![Follow on X](https://img.shields.io/badge/Follow-%40TakanomeApp-black?style=flat-square&logo=x&labelColor=000000)](https://x.com/TakanomeApp)
@@ -108,7 +107,7 @@ takanome ai-fix --model claude-sonnet-4.6
 
 ### 🧠 Supported Models
 
-Any model available on the [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/models) works with `--model`:
+Any of the **27 models** available on the [Bankr LLM Gateway](https://docs.bankr.bot/llm-gateway/models) works with `--model`. Here are some popular picks:
 
 | Model | Speed | Best For |
 |---|---|---|
@@ -116,6 +115,8 @@ Any model available on the [Bankr LLM Gateway](https://docs.bankr.bot/llm-gatewa
 | `claude-sonnet-4.6` | 🧠 Medium | Complex configs, detailed analysis |
 | `gemini-3-flash` | ⚡ Fast | Cost-efficient alternative |
 | `gpt-5-nano` | ⚡ Fast | OpenAI alternative |
+
+> See the full list of all 27 supported models at [docs.bankr.bot/llm-gateway/models](https://docs.bankr.bot/llm-gateway/models).
 
 ---
 
