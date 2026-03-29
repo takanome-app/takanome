@@ -1,0 +1,36 @@
+[package]
+name = "takanome"
+version = "0.1.0"
+edition = "2021"
+description = "Security scanner for AI agents"
+license = "MIT"
+
+[[bin]]
+name = "takanome"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "=1.0.86"
+chrono = { version = "=0.4.38", default-features = false, features = ["clock", "std"] }
+clap = { version = "=4.4.18", features = ["derive"] }
+colored = "=2.1.0"
+dirs = "=5.0.1"
+json5 = "=0.4.1"
+regex = "=1.10.6"
+serde = { version = "=1.0.210", features = ["derive"] }
+serde_json = "=1.0.128"
+rand = "=0.8.5"
+walkdir = "=2.5.0"
+minreq = { version = "=2.11.0", features = ["https-native", "json-using-serde"] }
+native-tls = "=0.2.12"
+
+# Force older pest/pest_meta compatible with Rust 1.75
+pest = "=2.7.13"
+pest_meta = "=2.7.13"
+pest_generator = "=2.7.13"
+pest_derive = "=2.7.13"
+
+[profile.release]
+strip = true
+lto = true
+codegen-units = 1
