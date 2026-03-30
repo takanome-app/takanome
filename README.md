@@ -10,7 +10,7 @@ and gives you a **score out of 100**.
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square&labelColor=1a1a2e)](LICENSE)
 [![Built with Rust](https://img.shields.io/badge/Built%20with-Rust-orange?style=flat-square&labelColor=1a1a2e&logo=rust)](https://www.rust-lang.org/)
 [![Follow on X](https://img.shields.io/badge/Follow-%40TakanomeApp-black?style=flat-square&logo=x&labelColor=000000)](https://x.com/TakanomeApp)
-[![TAKA](https://img.shields.io/badge/TAKA%20on-Bankr-orange?style=flat-square&labelColor=1a1a2e&logo=rust)](https://bankr.bot/launches/0x2670598c0868b3300c7e4499d9f3c6ba67925ba3)
+[![TAKA](https://img.shields.io/badge/TAKA%20on-Bankr-orange?style=flat-square&labelColor=1a1a2e&logo=rust)](https://bankr.bot/launches/0xFFD065994Fc95240280621F85601F334E2A82BA3)
 
 </div>
 
